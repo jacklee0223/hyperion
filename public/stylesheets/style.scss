@@ -9,13 +9,27 @@ body {
   background-repeat: no-repeat;
 }
 
+
 .main-div {
   margin-top: 10%;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.6;
   height: 500px;
 }
 
-.input-field {
-  margin-left: 20%;
+.signin_box {
+  margin-top: 5%;
+  margin-left: 15%;
+  color: white;
+}
+
+.cont-subdiv-top {
+  color: beige;
+  height: 250px;
+  background-color: black;
+}
+
+.cont-subdiv-bot {
+  height: 240px;
+  color: beige;
 }
