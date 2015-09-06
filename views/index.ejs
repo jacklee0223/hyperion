@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js">
   </script>
 
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 
 </head>
 <body>
@@ -44,25 +44,42 @@
     </nav>
   </header><!-- /header -->
   <!-- parallax -->
-  <div class="parallax-container">
-    <div class="parallax"><img src="images/dronewall6.jpg"></div>
+  <div class="parallax-container parallax-top">
+    <div class="parallax"><img src="images/dronestation.jpg"></div>
   </div>
+  <section ng-controller='UsersController as users'>
+    <ul id="users">
+      <li ng-repeat="user in users.all" data-id="{{criminal._id}}">
+        <strong>{{user.name}}</strong> <em>{{user.birthday}}</em> <span class='status {{user.name | lowercase }}'>{{user.name | uppercase}}</span>
+        <button class='delete' ng-click="users.deleteUser(user)">X</button>
+      </li>
+    </ul>
   <!-- form -->
   <div class="drone-listing">
-
-      <div class="row">
-        <div class="list-field col s2" background-image: url(http://i.kinja-img.com/gawker-media/image/upload/ooryumwjwpktpdnudmii.jpg);>
-
-        </div>
-        <div class="list-field col s7">
-dsfadsf
-        </div>
-        <div class="list-field col s3">
-adfsd
-        </div>
+    <div class="row">
+      <div class="list-field-top col s3">
 
       </div>
+      <div class="list-field-top col s6">
+        ARMORY
+      </div>
+      <div class="list-field-top col s3">
 
+      </div>
+    </div>
+      <div class="list-field col s2" background-image: url(http://i.kinja-img.com/gawker-media/image/upload/ooryumwjwpktpdnudmii.jpg);>
+
+      </div>
+      <div class="list-field col s7">
+dsfadsf
+      </div>
+      <div class="list-field col s3">
+adfsd
+      </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/cityruins.jpg"></div>
+  </div>
 </div>
 
 

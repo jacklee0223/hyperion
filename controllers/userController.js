@@ -2,7 +2,7 @@
 var User = require('../models/User');
 
 var userRender = function(req, res) {
-  res.render('users/index');
+  res.render('users/command');
 };
 
 // GET ALL
@@ -11,6 +11,7 @@ var getAll = function(request, response) {
     if(error) response.json({message: 'Could not find any user'});
 
     response.json({users: users});
+    // response.render('users/index')
   });
 }
 

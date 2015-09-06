@@ -1,6 +1,6 @@
 .nav-wrapper {
+/*  background-color: #430909;*/
   background-color: black;
-  opacity: 0.8;
 }
 
 body {
@@ -39,7 +39,32 @@ body {
 
 .list-field {
   color: white;
-  background-color: #430909;
+  background-color: black;
   height: 80px;
   text-align: center;
+}
+
+.list-field-top {
+  color: white;
+  background-color: black;
+  height: 80px;
+  text-align: center;
+  font-size: 300%;
+}
+
+.parallax-container {
+  height: 580px;
+  .parallax {
+    img {
+    }
+  }
+}
+
+.parallax-top {
+}
+
+.drone-listing{
+  .row{
+    margin-bottom: 0;
+  }
 }

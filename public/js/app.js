@@ -1,4 +1,4 @@
-// angular.module('app', []);
+angular.module('app', []);
 
 // .controller('mainController', function() {
 
@@ -13,7 +13,9 @@
 
 //   //define a list of items
 //   vm.computers = [
-
-//   ]
+//     {name: 'mac'},
+//     {name: 'yoga'},
+//     {name: 'chrome'}
+//   ];
 
 // })

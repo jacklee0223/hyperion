@@ -23,7 +23,7 @@ var droneController = require('../controllers/droneController'),
 //Landing Page
 router.get('/', homeController.index);
 // router.get('/drones', droneController.index);
-router.get('/users', userController.userRender);
+router.get('/command', userController.userRender);
 
 //Drones Routes
 
