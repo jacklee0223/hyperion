@@ -3,9 +3,12 @@
   opacity: 0.8; }
 
 body {
-  background-image: url(../images/dronewall6.jpg);
-  background-size: cover;
-  background-repeat: no-repeat; }
+  /*  background-image: url(../images/dronewall6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  @media (max-width: 1120px), (max-height: 630px) {
+      body { background-size: auto; }*/ }
 
 .main-div {
   margin-top: 10%;
@@ -26,5 +29,11 @@ body {
 .cont-subdiv-bot {
   height: 240px;
   color: beige; }
+
+.list-field {
+  color: white;
+  background-color: #430909;
+  height: 80px;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

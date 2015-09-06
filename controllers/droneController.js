@@ -1,7 +1,11 @@
 var Drone = require('../models/Drone');
 
-// GET
-function getAll(request, response) {
+var droneView = function(req, res) {
+  res.render('views/users/index');
+};
+
+// GET ALL
+var getAll = function(request, response) {
   Drone.find(function(error, drones) {
     if(error) response.json({message: 'Could not find any drone'});
 
@@ -23,7 +27,7 @@ function createDrone(request, response) {
   });
 }
 
-// GET
+// GET BY ID
 function getDrone(request, response) {
   var id = request.params.id;
 
