@@ -19,10 +19,10 @@ mongoose.connect('mongodb://localhost:27017/drones-app');
 
 
 // view engine setup
-app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname + 'public')));
+// app.use(express.static(path.join(__dirname + 'public')));
+app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
-// app.engine('html', require('ejs').renderFile);
+app.engine('html', require('ejs').renderFile);
 // app.locals.title = "hyperion";
 // app.engine('html', require('ejs').renderFile);
 // app.set('view engine', 'html');
@@ -38,8 +38,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(routes);
 
