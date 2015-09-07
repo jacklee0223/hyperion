@@ -3,11 +3,12 @@ var Drone = require('../models/Drone');
 var index = function(req, res) {
   res.render('index');
 }
-// var userRender = function(req, res) {
-//   res.sendfile('./public/views/users/command.html');
-// };
 
+var userRender = function(req, res) {
+  res.render('users/command');
+};
 
 module.exports = {
-  index: index
+  index: index,
+  userRender: userRender
 }

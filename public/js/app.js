@@ -1,7 +1,7 @@
 angular.module('app', [])
-  .controller('UsersController', function($scope) {
-    $scope.date = {message: 'Hello'};
-  });
+  // .controller('UsersController', function($scope) {
+  //   $scope.date = {message: 'Hello'};
+  // });
 
 // .controller('mainController', function() {
 

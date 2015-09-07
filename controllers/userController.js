@@ -1,9 +1,6 @@
 // require models
 var User = require('../models/User');
 
-var userRender = function(req, res) {
-  res.render('users/command');
-};
 
 // GET ALL
 var getAll = function(request, response) {
@@ -71,7 +68,6 @@ function removeUser(request, response) {
 }
 
 module.exports = {
-  userRender: userRender,
   getAll: getAll,
   createUser: createUser,
   getUser: getUser,

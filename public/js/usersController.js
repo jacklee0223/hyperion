@@ -1,17 +1,16 @@
 (function() {
   angular.module('app')
-         .controller('UsersController', usersController);
+         .controller('UsersController', UsersController);
 
-  usersController.$inject = ['$http'];
+  UsersController.$inject = ['$http'];
 
   function UsersController($http){
     var self = this;
     self.all = [];
     self.addUser = addUser;
     self.newUser = {};
-    self.getUser = getUser;
+    self.getUsers = getUsers;
     self.deleteUser = deleteUser;
-  }
 
     getUsers();
     function getUsers(){
@@ -39,7 +38,7 @@
           self.all.splice(index, 1);
         });
     }
-
+  }
 })();
 
 

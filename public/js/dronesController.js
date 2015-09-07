@@ -1,17 +1,16 @@
 (function() {
   angular.module('app')
-         .controller('DronesController', dronesController);
+         .controller('DronesController', DronesController);
 
-  dronesController.$inject = ['$http'];
+  DronesController.$inject = ['$http'];
 
   function DronesController($http){
     var self = this;
     self.all = [];
     self.addDrone = addDrone;
     self.newDrone = {};
-    self.getDrone = getDrone;
+    self.getDrones = getDrones;
     self.deleteDrone = deleteDrone;
-  }
 
     getDrones();
     function getDrones(){
@@ -39,6 +38,7 @@
           self.all.splice(index, 1);
         });
     }
+  }
 
 })();
 
