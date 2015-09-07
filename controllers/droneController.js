@@ -1,8 +1,6 @@
 var Drone = require('../models/Drone');
 
-var droneView = function(req, res) {
-  res.render('views/users/index');
-};
+
 
 // GET ALL
 var getAll = function(request, response) {
