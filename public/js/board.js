@@ -12,7 +12,7 @@ var board = new five.Board({
 // // });
 
 board.on("ready", function() {
-  var led = new five.Led(7);
+  var led = new five.Led(11);
 
   // This will grant access to the led instance
   // from within the REPL that's created when
@@ -107,3 +107,5 @@ board.on("ready", function() {
 //     });
 //   }
 // }).start();
+
+

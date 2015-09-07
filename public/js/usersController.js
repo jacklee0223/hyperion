@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('usersController', usersController);
+.controller('UsersController', usersController);
 
 usersController.$inject = ['$http'];
 
