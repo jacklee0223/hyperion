@@ -2,6 +2,8 @@ var five = require("johnny-five");
 var board = new five.Board({
   port: "/dev/cu.usbmodem1421"
 });
+//Serial Port
+var serialPort = require("serialport");
 // // var board = new five.Board();
 
 // // board.on("ready", function() {
@@ -12,15 +14,89 @@ var board = new five.Board({
 // // });
 
 board.on("ready", function() {
-  var led = new five.Led(11);
+  var led = new five.Led(8);
+  var servo = new five.Servo({
+    pin: 11,
+    type: "continuous",
+    center: true
+  });
+  var piezo = new five.Piezo(9);
+
+  servo.to(94);
 
   // This will grant access to the led instance
   // from within the REPL that's created when
   // running this program.
   this.repl.inject({
-    led: led
+    led: led,
+    servo: servo,
+    piezo: piezo
   });
+
+  piezo.play({
+    // song is composed by an array of pairs of notes and beats
+    // The first argument is the note (null means "no note")
+    // The second argument is the length of time (beat) of the note (or non-note)
+    song: [
+      // ["E4", 2/4],
+      // ["E4", 2/4],
+      // ["D4", 1/4],
+      // ["null", 1/4],
+      // ["E4", 2/4],
+      // ["E4", 2/4],
+      // ["D4", 1/4],
+      // ["null", 1/4],
+      // ["E4", 2/4],
+      // ["E4", 2/4],
+      // ["D4", 1/4],
+      // ["null", 1/4],
+      // ["E4", 1/4],
+      // ["null", 1/4],
+      // ["A4", 1/4],
+      // ["B4", 1/4],
+
+      // ["null", 1/4],
+
+      // ["E4", 2/4],
+      // ["E4", 2/4],
+      // ["D4", 1/4],
+      // ["null", 1/4],
+      // ["E4", 2/4],
+      // ["E4", 2/4],
+      // ["D4", 1/4],
+      // ["null", 1/4],
+      // ["E4", 1/4],
+      // ["null", 1/4],
+      // ["A4", 2/4],
+      // ["B4", 2/4],
+      // ["C4", 3/4],
+
+      ["C4", 1 / 4],
+      ["D4", 1 / 4],
+      ["F4", 1 / 4],
+      ["D4", 1 / 4],
+      ["A4", 1 / 4],
+      [null, 1 / 4],
+      ["A4", 1],
+      ["G4", 1],
+      [null, 1 / 2],
+      ["C4", 1 / 4],
+      ["D4", 1 / 4],
+      ["F4", 1 / 4],
+      ["D4", 1 / 4],
+      ["G4", 1 / 4],
+      [null, 1 / 4],
+      ["G4", 1],
+      ["F4", 1],
+      [null, 1 / 2]
+    ],
+    tempo: 100
+  });
+
 });
+
+  // servo.stop();
+
 
 // // function ledCont() {
 // //   var x = document.getElementById('ledflash');
@@ -40,53 +116,80 @@ board.on("ready", function() {
 // //     led = new five.Led(13),
 // //     motor;
 
-// // //Serial Port
-// // var serialPort = require("johnny-five/node_modules/serialport");
-
-// // // init
-// // document.addEventListener("DOMContentLoaded", function() {
-// //   // close window button
-// //   $("#closeWindow").click(function() {
-// //     win.close();
-// //   });
-
-// var board = new five.Board({
-//   port: "RN42-6703-SPP"
-// });
 
 
+// var STOP_SPEED = 90;
+// var leftSpeed = STOP_SPEED;
+// var rightSpeed = STOP_SPEED;
 
-
-// $('button').click(function(){
-//   // var led = new five.Led(13);
-//   this.repl.inject({
-//     led.blink(500);
-//   });
-// })
-
-//     // show serial port name
-//       $("#labelPort").text(portName);
-//       $("#labelPort").removeClass("btn-default").addClass("btn-primary");
-//     });
-
-//     // when serial port error
-//     board.on("error", function(err) {
-//       // show error message
-//       $("#labelPort").removeClass("btn-primary btn-default").addClass("btn-danger");
-//       $("#labelPort").text("Error!");
-//       // remove error message and return to normal state
-//       setTimout(function() {
-//         $("#labelPort").removeClass("btn-danger").addClass("btn-default");
-//         $("#labelPort").text("Ports");
-//       }, 5000);
-//     });
-
+// function BoEBot(pinLeft, pinRight){
+//   this.leftServo = new j5.Servo({
+//     pin: pinLeft,
+//     type: "continuous"
 //   });
 
-// });
+//   this.rightServo = new j5.Servo({
+//     pin: pinRight,
+//     type: "continuous"
+//   });
+// }
 
-// // show serial ports names
-// $("#serialPorts").html(html);
+// BoEBot.prototype.setSpeed = function(leftSpeed, rightSpeed){
+//   this.leftServo.to(leftSpeed);
+//   this.rightServo.to(rightSpeed);
+// }
+
+// BoEBot.prototype.fwd = function(speed){
+//   if (!speed){ speed = 1};
+
+//   leftSpeed = STOP_SPEED - speed;
+//   rightSpeed = STOP_SPEED + speed;
+//   this.setSpeed(leftSpeed, rightSpeed);
+// };
+
+// BoEBot.prototype.back = function(speed){
+//   if (!speed){ speed = 1};
+//   this.fwd(-speed);
+// };
+
+// BoEBot.prototype.stop = function(){
+//   leftSpeed = STOP_SPEED;
+//   rightSpeed = STOP_SPEED;
+//   this.setSpeed(leftSpeed, rightSpeed);
+// };
+
+// BoEBot.prototype.left = function(speed){
+//   if (!speed){ speed = 1};
+
+//   leftSpeed = leftSpeed - speed;
+//   this.setSpeed(leftSpeed, rightSpeed);
+// };
+
+// BoEBot.prototype.right = function(speed){
+//   if (!speed){ speed = 1 };
+
+//   rightSpeed = rightSpeed + speed;
+//   this.setSpeed(leftSpeed, rightSpeed);
+// };
+
+// BoEBot.prototype.spinRight = function(speed){
+//   if (!speed){ speed = 1 };
+
+//   leftSpeed = STOP_SPEED + speed;
+//   rightSpeed = STOP_SPEED + speed;
+//   this.setSpeed(leftSpeed, rightSpeed);
+// }
+
+// BoEBot.prototype.spinLeft = function(speed){
+//   if (!speed){ speed = 1 };
+
+//   leftSpeed = STOP_SPEED - speed;
+//   rightSpeed = STOP_SPEED - speed;
+//   this.setSpeed(leftSpeed, rightSpeed);
+// }
+
+// module.exports = BoEBot;
+
 
 // var Cylon = require("cylon");
 
