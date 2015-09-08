@@ -62,11 +62,36 @@ app.use('/', routes);
 var board = new five.Board({
   port: "/dev/cu.usbmodem1421"
 });
-var led;
+var led,
+    wheels,
+    rservo,
+    lservo;
+// var servo = new five.Servo({
+//     pin: 11,
+//     type: "continuous"
+//   });
 board.on("ready", function() {
   console.log('Arduino connected');
   led = new five.Led(8);
-});
+  rservo = new five.Servo(11);
+  lservo = new five.Servo(12);
+
+  rservo.to(94);
+  lservo.to(95);
+  // wheels = {};
+  // wheels.left = new five.Servo({
+  //   pin: 12,
+  //   type: "continuous"
+  // });
+  // wheels.right = new five.Servo({
+  //   pin: 11,
+  //   type: "continuous",
+  //   invert: true
+  });
+
+
+//   wheels.both = new five.Servos().to(94);
+// });
 
 //Socket connection handler
 io.on('connection', function (socket) {
@@ -82,6 +107,21 @@ io.on('connection', function (socket) {
       console.log('LED OFF RECEIVED');
 
   });
+
+  socket.on('servo:go', function (data) {
+      rservo.min();
+      lservo.max();
+      console.log('LED OFF RECEIVED');
+
+  });
+
+  socket.on('servo:stop', function (data) {
+      rservo.to(94);
+      lservo.to(95);
+      console.log('LED OFF RECEIVED');
+
+  });
+
 });
 
 console.log('Waiting for connection');

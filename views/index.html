@@ -9,7 +9,6 @@
     <div class="parallax"><img src="images/dronestation.jpg"></div>
   </div>
 
-    {{10+2}}
   <section class="divider">
   </section>
   <section ng-controller='UsersController as users'>
@@ -33,6 +32,8 @@
   <div ng-controller='ArduController'>
     <button ng-click="ledOn()">On</button>
     <button ng-click="ledOff()">Off</button>
+    <button ng-click="servoGo()">Go</button>
+    <button ng-click="servoStop()">Stop</button>
   </div>
 
   <!-- form -->

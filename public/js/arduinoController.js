@@ -12,9 +12,20 @@
                  mySocket.emit('led:on');
                  console.log('LED ON');
              };
+
              $scope.ledOff = function () {
                  mySocket.emit('led:off');
                  console.log('LED OFF');
+             };
+
+             $scope.servoGo = function () {
+                 mySocket.emit('servo:go');
+                 console.log('Servo Go');
+             };
+
+             $scope.servoStop = function () {
+                 mySocket.emit('servo:stop');
+                 console.log('Servo Stop');
              };
           };
 })();

@@ -16,9 +16,8 @@ var serialPort = require("serialport");
 board.on("ready", function() {
   var led = new five.Led(8);
   var servo = new five.Servo({
-    pin: 11,
-    type: "continuous",
-    center: true
+    pin: 12,
+    type: "continuous"
   });
   var piezo = new five.Piezo(9);
 
