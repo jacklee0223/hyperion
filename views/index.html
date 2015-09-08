@@ -12,7 +12,6 @@
     {{10+2}}
   <section class="divider">
   </section>
-
   <section ng-controller='UsersController as users'>
     <ul id="users">
       <li ng-repeat="user in users.all" data-id="{{user._id}}">
@@ -22,6 +21,19 @@
       </li>
     </ul>
   </section>
+  <section ng-controller='DronesController as drones'>
+    <ul id="users">
+      <li ng-repeat="drone in drones.all" data-id="{{drone._id}}">
+
+        <strong>{{drone.type}}</strong> <em>{{drone.type}}</em> <span class='status {{drone.type | lowercase }}'>{{drone.type | uppercase}}</span>
+        <button class='delete' ng-click="drones.deleteDrone(drone)">X</button>
+      </li>
+    </ul>
+  </section>
+  <div ng-controller='ArduController'>
+    <button ng-click="ledOn()">On</button>
+    <button ng-click="ledOff()">Off</button>
+  </div>
 
   <!-- form -->
   <div class="drone-listing" ng-controller='DronesController as drones'>
@@ -50,10 +62,6 @@ adfsd
   <div class="parallax-container">
     <div class="parallax"><img src="images/cityruins.jpg"></div>
   </div>
-
-
-
-
 
 
 </body>

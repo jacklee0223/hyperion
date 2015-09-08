@@ -1,4 +1,4 @@
-angular.module('app', [])
+angular.module('app', ['btford.socket-io']);
   // .controller('UsersController', function($scope) {
   //   $scope.date = {message: 'Hello'};
   // });

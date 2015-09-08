@@ -1,12 +1,16 @@
 // load the express package and create app
 var express = require('express'),
+    app = express(),
     path = require('path'),
     cors = require('cors'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
-    app = express(),
     mongoose = require('mongoose'),
-    methodOverride = require('method-override');
+    methodOverride = require('method-override'),
+    five = require("johnny-five"),
+    httpServer = require("http").createServer(app),
+    io = require('socket.io')(httpServer);
+    port = 3000;
 
 // routes
 var routes = require('./routes/index')
@@ -44,23 +48,42 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(routes);
 
 //start server
-app.listen(3000);
-console.log('3000 is the port');
+// app.listen(port);
+// console.log('port ' + port);
+
+httpServer.listen(port);
+console.log('http server is' + port);
 
 app.use('/', routes);
 
-// app.use('/', index);
-// app.get('/command', function(req, res) {
-//   res.render('./users/command.html');
-// });
+//Arduino board connection
 
-// // routes
-// app.get('/', function(req, res) {
-//   res.sendFile(path.join(__dirname + '/views/users/index.html'));
-// });
+// var board = new five.Board();
+var board = new five.Board({
+  port: "/dev/cu.usbmodem1421"
+});
+var led;
+board.on("ready", function() {
+  console.log('Arduino connected');
+  led = new five.Led(8);
+});
 
-// app.get('/command', function(req, res) {
-//   res.sendFile(path.join(__dirname + '/views/users/command.html'));
-// });
+//Socket connection handler
+io.on('connection', function (socket) {
+  console.log(socket.id);
+
+  socket.on('led:on', function (data) {
+     led.on();
+     console.log('LED ON RECEIVED');
+  });
+
+  socket.on('led:off', function (data) {
+      led.off();
+      console.log('LED OFF RECEIVED');
+
+  });
+});
+
+console.log('Waiting for connection');
 
 module.exports = app;
