@@ -5,10 +5,16 @@ var index = function(req, res) {
 }
 
 var userRender = function(req, res) {
+  res.render('auth/login');
+}
+
+var commandRender = function(req, res) {
   res.render('users/command');
-};
+}
+
 
 module.exports = {
   index: index,
-  userRender: userRender
+  userRender: userRender,
+  commandRender: commandRender
 }

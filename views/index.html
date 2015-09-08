@@ -11,15 +11,7 @@
 
   <section class="divider">
   </section>
-  <section ng-controller='UsersController as users'>
-    <ul id="users">
-      <li ng-repeat="user in users.all" data-id="{{user._id}}">
 
-        <strong>{{user.name}}</strong> <em>{{user.birthday}}</em> <span class='status {{user.name | lowercase }}'>{{user.name | uppercase}}</span>
-        <button class='delete' ng-click="users.deleteUser(user)">X</button>
-      </li>
-    </ul>
-  </section>
   <section ng-controller='DronesController as drones'>
     <ul id="users">
       <li ng-repeat="drone in drones.all" data-id="{{drone._id}}">
@@ -29,12 +21,6 @@
       </li>
     </ul>
   </section>
-  <div ng-controller='ArduController'>
-    <button ng-click="ledOn()">On</button>
-    <button ng-click="ledOff()">Off</button>
-    <button ng-click="servoGo()">Go</button>
-    <button ng-click="servoStop()">Stop</button>
-  </div>
 
   <!-- form -->
   <div class="drone-listing" ng-controller='DronesController as drones'>

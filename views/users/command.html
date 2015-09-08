@@ -34,22 +34,11 @@
   <div class="container">
     <div class="row">
       <div class="main-div col s12">
-        <div class="signin_box">
-          <div class="row">
-            <div class="input-field col s9">
-              <input id="email" type="email" class="validate">
-              <label for="email">ACCESS I.D.</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s9">
-              <input id="password" type="password" class="validate">
-              <label for="password">SECURITY CODE</label>
-            </div>
-          </div>
-          <button id="ledflash" class="btn waves-effect waves-light" name="action">Submit
-            <i class="material-icons">send</i>
-          </button>
+        <div ng-controller='ArduController'>
+          <button ng-click="ledOn()">On</button>
+          <button ng-click="ledOff()">Off</button>
+          <button ng-click="servoGo()">Go</button>
+          <button ng-click="servoStop()">Stop</button>
         </div>
       </div>
     </div>
