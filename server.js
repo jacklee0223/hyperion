@@ -47,12 +47,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(routes);
 
-//start server
+// start server
 // app.listen(port);
 // console.log('port ' + port);
 
 httpServer.listen(port);
-console.log('http server is' + port);
+console.log('http server is ' + port);
 
 app.use('/', routes);
 
@@ -76,8 +76,9 @@ board.on("ready", function() {
   rservo = new five.Servo(11);
   lservo = new five.Servo(12);
 
-  rservo.to(94);
-  lservo.to(95);
+  // make servos static at initial
+  rservo.to(90);
+  lservo.to(90);
   // wheels = {};
   // wheels.left = new five.Servo({
   //   pin: 12,
@@ -111,14 +112,35 @@ io.on('connection', function (socket) {
   socket.on('servo:go', function (data) {
       rservo.min();
       lservo.max();
-      console.log('LED OFF RECEIVED');
+      console.log('Forward');
+
+  });
+
+  socket.on('servo:back', function (data) {
+      rservo.max();
+      lservo.min();
+      console.log('Back');
 
   });
 
   socket.on('servo:stop', function (data) {
-      rservo.to(94);
-      lservo.to(95);
-      console.log('LED OFF RECEIVED');
+      rservo.to(90);
+      lservo.to(90);
+      console.log('Stop');
+
+  });
+
+  socket.on('servo:left', function (data) {
+      rservo.min();
+      lservo.min();
+      console.log('left turn');
+
+  });
+
+  socket.on('servo:right', function (data) {
+      rservo.max();
+      lservo.max();
+      console.log('right turn');
 
   });
 

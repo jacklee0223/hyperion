@@ -23,9 +23,24 @@
                  console.log('Servo Go');
              };
 
+             $scope.servoBack = function () {
+                 mySocket.emit('servo:back');
+                 console.log('Servo Go');
+             };
+
              $scope.servoStop = function () {
                  mySocket.emit('servo:stop');
                  console.log('Servo Stop');
+             };
+
+             $scope.servoLeft = function () {
+                 mySocket.emit('servo:left');
+                 console.log('Servo Left Turn');
+             };
+
+             $scope.servoRight = function () {
+                 mySocket.emit('servo:right');
+                 console.log('Servo Right Turn');
              };
           };
 })();
