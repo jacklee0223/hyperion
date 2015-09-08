@@ -12,7 +12,7 @@
   <section class="divider">
   </section>
 
-  <section ng-controller='DronesController as drones'>
+<!--   <section ng-controller='DronesController as drones'>
     <ul id="users">
       <li ng-repeat="drone in drones.all" data-id="{{drone._id}}">
 
@@ -20,7 +20,7 @@
         <button class='delete' ng-click="drones.deleteDrone(drone)">X</button>
       </li>
     </ul>
-  </section>
+  </section> -->
 
   <!-- form -->
   <div class="drone-listing" ng-controller='DronesController as drones'>
@@ -35,15 +35,25 @@
 
       </div>
     </div>
-      <div class="list-field col s2">
-        <img src="ooryumwjwpktpdnudmii.jpg">
-      </div>
-      <div class="list-field col s7">
+    <div class="row">
+      <div class="list-field-bottom col s2">
 
       </div>
-      <div class="list-field col s3">
+      <div class="list-field-bottom col s8">
+        <div class="holder">
+          <div class="slide" ng-repeat="drone in drones.all" data-id="{{drone._id}}">
+            <img src="{{drone.photo_url}}">
+            <span class="drone-plate">
+              <h3>{{drone.name}}</h3>
+              <p>{{drone.type}}</p>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="list-field-bottom col s2">
 
       </div>
+    </div>
   </div>
 
   <div class="parallax-container">

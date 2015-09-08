@@ -42,6 +42,10 @@ body {
   background-color: black;
   height: 80px;
   text-align: center;
+  img {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .list-field-top {
@@ -52,15 +56,33 @@ body {
   font-size: 300%;
 }
 
+.list-field-bottom {
+  color: white;
+  background-color: black;
+  height: 390px;
+  text-align: center;
+  overflow-x: scroll;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.slide {
+  float: left;
+  margin-right: 1%;
+}
+
+.holder {
+  width: 1000%;
+}
+
 .parallax-container {
   height: 580px;
   .parallax {
     img {
     }
   }
-}
-
-.parallax-top {
 }
 
 .drone-listing{

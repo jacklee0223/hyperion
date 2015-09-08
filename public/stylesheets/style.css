@@ -35,6 +35,9 @@ body {
   background-color: black;
   height: 80px;
   text-align: center; }
+  .list-field img {
+    width: 200px;
+    height: 200px; }
 
 .list-field-top {
   color: white;
@@ -42,6 +45,23 @@ body {
   height: 80px;
   text-align: center;
   font-size: 300%; }
+
+.list-field-bottom {
+  color: white;
+  background-color: black;
+  height: 390px;
+  text-align: center;
+  overflow-x: scroll; }
+  .list-field-bottom img {
+    width: 200px;
+    height: 200px; }
+
+.slide {
+  float: left;
+  margin-right: 1%; }
+
+.holder {
+  width: 1000%; }
 
 .parallax-container {
   height: 580px; }
