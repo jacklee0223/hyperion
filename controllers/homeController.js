@@ -16,10 +16,15 @@ var newDroneRender = function(req, res) {
   res.render('users/newDrone');
 }
 
+var updateDroneRender = function(req, res) {
+  res.render('users/editDrone');
+}
+
 
 module.exports = {
   index: index,
   userRender: userRender,
   commandRender: commandRender,
-  newDroneRender: newDroneRender
+  newDroneRender: newDroneRender,
+  updateDroneRender: updateDroneRender
 }

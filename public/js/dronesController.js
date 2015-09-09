@@ -10,23 +10,13 @@
     self.addDrone = addDrone;
     self.newDrone = {};
     self.getDrones = getDrones;
-    self.getDrone = getDrone;
-    self.editDrone = editDrone;
+    self.updateDrone = updateDrone;
     self.deleteDrone = deleteDrone;
 
     getDrones();
     function getDrones(){
       $http
         .get('http://localhost:3000/drones')
-        .then(function(response){
-          self.all = response.data.drones;
-      });
-    }
-
-    getDrone();
-    function getDrone(){
-      $http
-        .get("http://localhost:3000/drones" + drone._id)
         .then(function(response){
           self.all = response.data.drones;
       });
@@ -42,15 +32,14 @@
       $window.location.href = '/';
     }
 
-    function editDrone(drone){
+    function updateDrone(drone){
       $http
-        .edit("http://localhost:3000/drones/" + drone._id)
+        .put("http://localhost:3000/drones/" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
           self.all.splice(index, 1);
         });
     }
-  }
 
     function deleteDrone(drone){
       $http

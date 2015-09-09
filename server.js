@@ -10,7 +10,7 @@ var express = require('express'),
     five = require("johnny-five"),
     httpServer = require("http").createServer(app),
     io = require('socket.io')(httpServer);
-    port = 3000;
+    port = process.env.PORT || 3000;
 
 // routes
 var routes = require('./routes/index')
@@ -19,8 +19,7 @@ var routes = require('./routes/index')
 
 var router = express.Router();
 
-mongoose.connect('mongodb://localhost:27017/drones-app');
-
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/hyperion');
 
 // view engine setup
 app.set('view engine', 'html');
@@ -42,8 +41,9 @@ app.use('/', routes);
 // app.use(routes);
 
 // start server
-httpServer.listen(port);
-console.log('http server is ' + port);
+httpServer.listen(port, function() {
+  console.log('http server is ' + port);
+});
 // app.listen(port);
 // console.log('port ' + port);
 
@@ -80,12 +80,12 @@ io.on('connection', function (socket) {
 
   socket.on('led:on', function (data) {
      led.toggle();
-     console.log('LED ON/OFF RECEIVED');
+     console.log('LED ON/OFF');
   });
 
   socket.on('led:blink', function (data) {
      led.blink(500);
-     console.log('LED BLINK RECEIVED');
+     console.log('LED BLINK');
   });
 
   socket.on('servo:go', function (data) {
