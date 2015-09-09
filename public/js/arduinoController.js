@@ -18,11 +18,6 @@
                  console.log('LED Blink');
              };
 
-             // $scope.ledOff = function () {
-             //     mySocket.emit('led:off');
-             //     console.log('LED OFF');
-             // };
-
              $scope.servoGo = function () {
                  mySocket.emit('servo:go');
                  console.log('Servo Go');

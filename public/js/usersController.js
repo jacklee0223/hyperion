@@ -2,9 +2,9 @@
   angular.module('app')
          .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['$http'];
+  UsersController.$inject = ['$http', '$location', '$window'];
 
-  function UsersController($http){
+  function UsersController($http, $location, $window){
     var self = this;
     self.all = [];
     self.addUser = addUser;
@@ -28,6 +28,7 @@
           getUsers();
       });
       self.newUser = {};
+      $window.location.href = '/';
     }
 
     function deleteUser(user){

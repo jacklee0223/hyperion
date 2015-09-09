@@ -22,6 +22,8 @@ function createDrone(request, response) {
     if(error) response.json({messsage: 'Could not create drone b/c:' + error});
 
     response.json({drone: drone});
+    response.redirect('/');
+    console.log('drone created');
   });
 }
 

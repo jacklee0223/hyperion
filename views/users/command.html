@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html ng-app="app">
   <% include ../partials/head %>
-<body>
   <% include ../partials/navbar %>
 
   <!-- parallax -->
@@ -9,7 +6,10 @@
     <div class="parallax"><img src="images/cityruins.jpg"></div>
   </div>
 
-  <!-- form -->
+  <!-- Main Content -->
+  <section class="divider">
+  </section>
+
   <div class="tactical-background">
     <div class="container tactical-container">
       <div class="row tactical-row">
@@ -17,8 +17,7 @@
           <div ng-controller='ArduController'>
             <button ng-click="ledOn()">LED ON/OFF</button>
             <button ng-click="ledBlink()">Blink</button>
-            <!-- <button ng-click="ledOff()">Off</button> -->
-            <button ng-click="servoGo()">Go</button>
+            <button ng-click="servoGo()">Forward</button>
             <button ng-click="servoBack()">Back</button>
             <button ng-click="servoStop()">Stop</button>
             <button ng-click="servoLeft()">Left</button>
@@ -28,14 +27,13 @@
       </div>
     </div>
   </div>
+
+  <section class="divider">
+  </section>
+
+  <!-- parallax -->
   <div class="parallax-container">
     <div class="parallax"><img src="images/cityruins.jpg"></div>
   </div>
 
   <% include ../partials/footer %>
-
-</body>
-</html>
-
-
-

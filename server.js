@@ -23,17 +23,10 @@ mongoose.connect('mongodb://localhost:27017/drones-app');
 
 
 // view engine setup
-// app.use(express.static(path.join(__dirname + 'public')));
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
-// app.locals.title = "hyperion";
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
 
-// app.get('/stylesheets/style.css', function(req, res) {
-//   res.render('./')
-// })
 
 // app.use
 app.use(cors());
@@ -43,26 +36,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', routes);
 
 
 // app.use(routes);
 
 // start server
+httpServer.listen(port);
+console.log('http server is ' + port);
 // app.listen(port);
 // console.log('port ' + port);
 
-httpServer.listen(port);
-console.log('http server is ' + port);
 
-app.use('/', routes);
 
 //Arduino board connection
 
-// var board = new five.Board();
 var board = new five.Board({
-  port: "/dev/cu.usbmodem1411"
+  port: "/dev/cu.usbmodem1421"
   // port: "/dev/cu.RN42-6703-SPP"
-  // port: "/dev/tty.RandomBot-DevB"
 });
 var led,
     wheels,
@@ -97,12 +88,6 @@ io.on('connection', function (socket) {
      console.log('LED BLINK RECEIVED');
   });
 
-  // socket.on('led:off', function (data) {
-  //     led.off();
-  //     console.log('LED OFF RECEIVED');
-
-  // });
-
   socket.on('servo:go', function (data) {
       rservo.min();
       lservo.max();
@@ -126,13 +111,13 @@ io.on('connection', function (socket) {
 
   socket.on('servo:left', function (data) {
       rservo.min();
-      lservo.min();
+      lservo.to(90);
       console.log('left turn');
 
   });
 
   socket.on('servo:right', function (data) {
-      rservo.max();
+      rservo.to(90);
       lservo.max();
       console.log('right turn');
 

@@ -22,9 +22,9 @@ nav {
 }
 
 .main-div {
-  margin-top: 10%;
-  background-color: black;
-  opacity: 0.6;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: white;
   height: 500px;
 }
 
@@ -48,6 +48,12 @@ nav {
   margin-top: 5%;
   margin-left: 15%;
   color: white;
+}
+
+.newdrone-box {
+  margin-top: 5%;
+  margin-left: 15%;
+  color: black;
 }
 
 .cont-subdiv-top {
@@ -92,14 +98,23 @@ nav {
   }
 }
 
+.input-field {
+  color: black;
+}
+
 .slide {
   float: left;
   margin-right: 1%;
+  a {
+    color: white;
+  }
 }
 
 .holder {
   width: 1000%;
 }
+
+
 
 .parallax-container {
   height: 600px;
@@ -138,6 +153,7 @@ footer {
   left: 0;
   padding: 1rem;
   color: white;
+  z-index: 1;
 
   div {
     margin-top: 1%;

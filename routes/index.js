@@ -25,6 +25,7 @@ router.get('/', homeController.index);
 // router.get('/drones', droneController.index);
 router.get('/command', homeController.commandRender);
 router.get('/login', homeController.userRender);
+router.get('/newdrone', homeController.newDroneRender);
 
 //Drones Routes
 

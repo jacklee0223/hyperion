@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
   <% include partials/head %>
-<body ng-app="app" lang="en">
   <% include partials/navbar %>
 
   <!-- parallax -->
@@ -24,7 +21,7 @@
     </ul>
   </section> -->
 
-  <!-- Armory -->
+  <!-- Main Content -->
   <div class="drone-listing" ng-controller='DronesController as drones'>
     <div class="row">
       <div class="list-field-top col s3">
@@ -44,10 +41,12 @@
       <div class="list-field-bottom col s8">
         <div class="holder">
           <div class="slide" ng-repeat="drone in drones.all" data-id="{{drone._id}}">
-            <img src="{{drone.photo_url}}">
+            <img src="images/{{drone.photo_url}}">
             <span class="drone-plate">
               <h3>{{drone.name}}</h3>
               <p>{{drone.type}}</p>
+              <button class='edit' ng-click="drones.Drone(drone)">X</button>
+              <button class='delete' ng-click="drones.deleteDrone(drone)">X</button>
             </span>
           </div>
         </div>
@@ -61,6 +60,7 @@
   <section class="divider">
   </section>
 
+  <!-- parallax -->
   <div class="parallax-container">
     <div class="parallax">
       <img src="images/dronestation.jpg">
@@ -68,6 +68,3 @@
   </div>
 
   <% include partials/footer %>
-
-</body>
-</html>

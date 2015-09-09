@@ -12,9 +12,14 @@ var commandRender = function(req, res) {
   res.render('users/command');
 }
 
+var newDroneRender = function(req, res) {
+  res.render('users/newDrone');
+}
+
 
 module.exports = {
   index: index,
   userRender: userRender,
-  commandRender: commandRender
+  commandRender: commandRender,
+  newDroneRender: newDroneRender
 }

@@ -1,0 +1,83 @@
+  <% include ../partials/head %>
+  <% include ../partials/navbar %>
+
+  <!-- parallax -->
+  <div class="parallax-container parallax-top">
+    <div class="parallax">
+      <img src="images/dronestation.jpg">
+    </div>
+  </div>
+
+  <section class="divider">
+  </section>
+
+<!--   <section ng-controller='DronesController as drones'>
+    <ul id="users">
+      <li ng-repeat="drone in drones.all" data-id="{{drone._id}}">
+
+        <strong>{{drone.type}}</strong> <em>{{drone.type}}</em> <span class='status {{drone.type | lowercase }}'>{{drone.type | uppercase}}</span>
+        <button class='delete' ng-click="drones.deleteDrone(drone)">X</button>
+      </li>
+    </ul>
+  </section> -->
+
+  <!-- Main Content -->
+  <div class="tactical-background" ng-controller="DronesController as drones">
+    <div class="container">
+      <div class="row tactical-row">
+        <div class="main-div col s12">
+          <form class="add-drone" ng-submit='drones.addDrone()'>
+            <div class="newdrone-box">
+
+              <div class="row">
+               <div class="input-field col s9">
+                  <input placeholder="Name" id="first_name" type="text" class="validate" ng-model='drones.newDrone.name'>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s9">
+                  <label>Type</label>
+                  <select class="browser-default" ng-model='drones.newDrone.type'>
+                    <option value="Ground">Ground</option>
+                    <option value="Quadcopter">Quadcopter</option>
+                    <option value="Utility">Utility</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="file-field input-field col s9">
+                  <input class="file-path validate" type="text"/ ng-model='drones.newDrone.photo_url'>
+                  <div class="btn">
+                    <span>Photo</span>
+                    <input type="file" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+               <div class="input-field col s9">
+                  <input placeholder="Connection ID" id="first_name" type="text" class="validate" ng-model='drones.newDrone.connection_id'>
+                </div>
+              </div>
+              <button id="ledflash" class="btn waves-effect waves-light" name="action">Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="divider">
+  </section>
+
+  <!-- parallax -->
+  <div class="parallax-container">
+    <div class="parallax">
+      <img src="images/dronestation.jpg">
+    </div>
+  </div>
+
+  <% include ../partials/footer %>

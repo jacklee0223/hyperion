@@ -18,9 +18,9 @@ nav {
   z-index: 1; }
 
 .main-div {
-  margin-top: 10%;
-  background-color: black;
-  opacity: 0.6;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: white;
   height: 500px; }
 
 .tactical-screen {
@@ -40,6 +40,11 @@ nav {
   margin-top: 5%;
   margin-left: 15%;
   color: white; }
+
+.newdrone-box {
+  margin-top: 5%;
+  margin-left: 15%;
+  color: black; }
 
 .cont-subdiv-top {
   color: beige;
@@ -76,9 +81,14 @@ nav {
     width: 200px;
     height: 200px; }
 
+.input-field {
+  color: black; }
+
 .slide {
   float: left;
   margin-right: 1%; }
+  .slide a {
+    color: white; }
 
 .holder {
   width: 1000%; }
@@ -108,7 +118,8 @@ footer {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  color: white; }
+  color: white;
+  z-index: 1; }
   footer div {
     margin-top: 1%;
     width: 50%;
