@@ -10,13 +10,18 @@
       function ArduController ($scope, mySocket) {
              $scope.ledOn = function () {
                  mySocket.emit('led:on');
-                 console.log('LED ON');
+                 console.log('LED ON/OFF');
              };
 
-             $scope.ledOff = function () {
-                 mySocket.emit('led:off');
-                 console.log('LED OFF');
+             $scope.ledBlink = function () {
+                 mySocket.emit('led:blink');
+                 console.log('LED Blink');
              };
+
+             // $scope.ledOff = function () {
+             //     mySocket.emit('led:off');
+             //     console.log('LED OFF');
+             // };
 
              $scope.servoGo = function () {
                  mySocket.emit('servo:go');

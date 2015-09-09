@@ -60,16 +60,15 @@ app.use('/', routes);
 
 // var board = new five.Board();
 var board = new five.Board({
-  port: "/dev/cu.usbmodem1421"
+  port: "/dev/cu.usbmodem1411"
+  // port: "/dev/cu.RN42-6703-SPP"
+  // port: "/dev/tty.RandomBot-DevB"
 });
 var led,
     wheels,
     rservo,
     lservo;
-// var servo = new five.Servo({
-//     pin: 11,
-//     type: "continuous"
-//   });
+
 board.on("ready", function() {
   console.log('Arduino connected');
   led = new five.Led(8);
@@ -79,35 +78,30 @@ board.on("ready", function() {
   // make servos static at initial
   rservo.to(90);
   lservo.to(90);
-  // wheels = {};
-  // wheels.left = new five.Servo({
-  //   pin: 12,
-  //   type: "continuous"
-  // });
-  // wheels.right = new five.Servo({
-  //   pin: 11,
-  //   type: "continuous",
-  //   invert: true
+
+
   });
 
-
-//   wheels.both = new five.Servos().to(94);
-// });
 
 //Socket connection handler
 io.on('connection', function (socket) {
   console.log(socket.id);
 
   socket.on('led:on', function (data) {
-     led.on();
-     console.log('LED ON RECEIVED');
+     led.toggle();
+     console.log('LED ON/OFF RECEIVED');
   });
 
-  socket.on('led:off', function (data) {
-      led.off();
-      console.log('LED OFF RECEIVED');
-
+  socket.on('led:blink', function (data) {
+     led.blink(500);
+     console.log('LED BLINK RECEIVED');
   });
+
+  // socket.on('led:off', function (data) {
+  //     led.off();
+  //     console.log('LED OFF RECEIVED');
+
+  // });
 
   socket.on('servo:go', function (data) {
       rservo.min();
