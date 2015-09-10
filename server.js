@@ -57,9 +57,9 @@ console.log('port ' + port);
 //Arduino board connection
 
 var board = new five.Board({
-  // port: "/dev/cu.usbmodem1411"
+  port: "/dev/cu.usbmodem1411"
   // port: "/dev/cu.ED-209-DevB"
-  port: "/dev/cu.RN42-6703-SPP"
+  // port: "/dev/cu.RN42-6703-SPP"
 });
 var led,
     rservo,
