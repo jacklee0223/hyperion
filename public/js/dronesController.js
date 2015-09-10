@@ -16,7 +16,7 @@
     getDrones();
     function getDrones(){
       $http
-        .get('http://localhost:3000/drones')
+        .get('https://young-crag-5724.herokuapp.com/drones')
         .then(function(response){
           self.all = response.data.drones;
       });
@@ -24,7 +24,7 @@
 
     function addDrone(){
       $http
-        .post('http://localhost:3000/drones', self.newDrone)
+        .post('https://young-crag-5724.herokuapp.com/drones', self.newDrone)
         .then(function(response){
           getDrones();
       });
@@ -34,7 +34,7 @@
 
     function updateDrone(drone){
       $http
-        .put("http://localhost:3000/drones/" + drone._id)
+        .put("https://young-crag-5724.herokuapp.com/drones" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
           self.all.splice(index, 1);
@@ -43,7 +43,7 @@
 
     function deleteDrone(drone){
       $http
-        .delete("http://localhost:3000/drones/" + drone._id)
+        .delete("https://young-crag-5724.herokuapp.com/drones" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
           self.all.splice(index, 1);
