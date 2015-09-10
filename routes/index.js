@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    http = require('http'),
+    // http = require('http'),
     mongoose = require('mongoose'),
     methodOverride = require('method-override'),
     path = require('path'), // Allows us to deal with file structures
@@ -46,7 +46,7 @@ router.route('/drones/:id')
   // GET return specific drone
   .get(droneController.getDrone)
 
-  // PATCH update existing drone
+  // PUT update existing drone
   .put(droneController.updateDrone)
 
   // DELETE remove specific drone from DB
@@ -71,8 +71,8 @@ router.route('/users/:id')
   // GET return specific user
   .get(userController.getUser)
 
-  // PATCH update existing user
-  .patch(userController.updateUser)
+  // PUT update existing user
+  .put(userController.updateUser)
 
   // DELETE remove specific user from DB
   .delete(userController.removeUser);
