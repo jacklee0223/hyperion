@@ -78,12 +78,26 @@ nav {
   }
 }
 
+.list-field-row {
+  height: 130px;
+  background-color: black;
+}
+
 .list-field-top {
   color: white;
   background-color: black;
   height: 80px;
   text-align: center;
   font-size: 300%;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    font-size: 50%;
+  }
+
 }
 
 .list-field-bottom {

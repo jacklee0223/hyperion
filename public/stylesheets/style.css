@@ -64,12 +64,20 @@ nav {
     width: 200px;
     height: 200px; }
 
+.list-field-row {
+  height: 130px;
+  background-color: black; }
+
 .list-field-top {
   color: white;
   background-color: black;
   height: 80px;
   text-align: center;
   font-size: 300%; }
+  .list-field-top p {
+    margin: 0; }
+  .list-field-top a {
+    font-size: 50%; }
 
 .list-field-bottom {
   color: white;
