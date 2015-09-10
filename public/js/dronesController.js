@@ -34,7 +34,7 @@
 
     function updateDrone(drone){
       $http
-        .put("https://young-crag-5724.herokuapp.com/drones" + drone._id)
+        .put("https://young-crag-5724.herokuapp.com/drones/" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
           self.all.splice(index, 1);
@@ -43,7 +43,7 @@
 
     function deleteDrone(drone){
       $http
-        .delete("https://young-crag-5724.herokuapp.com/drones" + drone._id)
+        .delete("https://young-crag-5724.herokuapp.com/drones/" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
           self.all.splice(index, 1);
