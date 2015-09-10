@@ -47,7 +47,7 @@ router.route('/drones/:id')
   .get(droneController.getDrone)
 
   // PATCH update existing drone
-  .patch(droneController.updateDrone)
+  .put(droneController.updateDrone)
 
   // DELETE remove specific drone from DB
   .delete(droneController.removeDrone);

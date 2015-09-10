@@ -56,7 +56,6 @@ console.log('port ' + port);
 ////**************************************////
 //////////////////////////////////////////////
 
-// // Arduino board connection (Uncomment chosen port)
 
 // var board = new five.Board({
 //   // port: "/dev/cu.usbmodem1421"
@@ -132,7 +131,7 @@ console.log('port ' + port);
 
 // });
 
-console.log('Waiting for connection');
+// console.log('Waiting for connection');
 
 //////////////////////////////////////////////
 ////**************************************////

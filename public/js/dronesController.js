@@ -36,8 +36,7 @@
       $http
         .put("https://young-crag-5724.herokuapp.com/drones/" + drone._id)
         .then(function(response){
-          var index = self.all.indexOf(drone);
-          self.all.splice(index, 1);
+          getDrones();
         });
     }
 
