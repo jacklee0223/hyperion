@@ -2,7 +2,7 @@
   angular.module('app')
          .controller('DronesController', DronesController);
 
-  DronesController.$inject = ['$http', '$location', '$window'];
+  DronesController.$inject = ['$http', '$location'];
 
   function DronesController($http, $location, $window){
     var self = this;
@@ -29,7 +29,7 @@
           getDrones();
       });
       self.newDrone = {};
-      $window.location.href = '/';
+      $http.location.href = '/';
     }
 
     function updateDrone(drone){
