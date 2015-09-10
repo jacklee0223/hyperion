@@ -25,7 +25,7 @@
 
              $scope.servoBack = function () {
                  mySocket.emit('servo:back');
-                 console.log('Servo Go');
+                 console.log('Servo Back');
              };
 
              $scope.servoStop = function () {

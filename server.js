@@ -8,8 +8,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     methodOverride = require('method-override'),
     five = require("johnny-five"),
-    httpServer = require("http").createServer(app),
-    io = require('socket.io')(httpServer);
+    server = require("http").createServer(app),
+    io = require('socket.io')(server);
     port = process.env.PORT || 3000;
 
 // routes
@@ -46,22 +46,21 @@ app.use('/', routes);
 // app.use(routes);
 
 // start server
-httpServer.listen(port, function() {
-  console.log('http server is ' + port);
-});
-// app.listen(port);
-// console.log('port ' + port);
+// httpServer.listen(port, function() {
+//   console.log('http server is ' + port);
+// });
+server.listen(port);
+console.log('port ' + port);
 
 
 
 //Arduino board connection
 
 var board = new five.Board({
-  port: "/dev/cu.usbmodem1421"
-  // port: "/dev/cu.RN42-6703-SPP"
+  // port: "/dev/cu.usbmodem1421"
+  port: "/dev/cu.ED-209-DevB"
 });
 var led,
-    wheels,
     rservo,
     lservo;
 
@@ -69,7 +68,7 @@ board.on("ready", function() {
   console.log('Arduino connected');
   led = new five.Led(8);
   rservo = new five.Servo(11);
-  lservo = new five.Servo(12);
+  lservo = new five.Servo(10);
 
   // make servos static at initial
   rservo.to(90);
