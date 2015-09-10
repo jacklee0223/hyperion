@@ -19,7 +19,12 @@ var routes = require('./routes/index')
 
 var router = express.Router();
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/hyperion');
+var mongoURI = 'mongodb://localhost/hyperion';
+if (process.env.NODE_ENV === 'production') {
+  mongoURI = process.env.MONGOLAB_URI
+}
+
+mongoose.connect(mongoURI);
 
 // view engine setup
 app.set('view engine', 'html');
