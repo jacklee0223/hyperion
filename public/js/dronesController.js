@@ -2,9 +2,9 @@
   angular.module('app')
          .controller('DronesController', DronesController);
 
-  DronesController.$inject = ['$https', '$location', '$window'];
+  DronesController.$inject = ['$http', '$location', '$window'];
 
-  function DronesController($https, $location, $window){
+  function DronesController($http, $location, $window){
     var self = this;
     self.all = [];
     self.addDrone = addDrone;
@@ -15,7 +15,7 @@
 
     getDrones();
     function getDrones(){
-      $https
+      $http
         .get('https://young-crag-5724.herokuapp.com/drones')
         .then(function(response){
           self.all = response.data.drones;
@@ -23,7 +23,7 @@
     }
 
     function addDrone(){
-      $https
+      $http
         .post('https://young-crag-5724.herokuapp.com/drones', self.newDrone)
         .then(function(response){
           getDrones();
@@ -33,7 +33,7 @@
     }
 
     function updateDrone(drone){
-      $https
+      $http
         .put("https://young-crag-5724.herokuapp.com/drones" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
@@ -42,7 +42,7 @@
     }
 
     function deleteDrone(drone){
-      $https
+      $http
         .delete("https://young-crag-5724.herokuapp.com/drones" + drone._id)
         .then(function(response){
           var index = self.all.indexOf(drone);
