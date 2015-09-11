@@ -6,17 +6,29 @@
   <title></title>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/socket.io-client/socket.io.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-socket-io/socket.js"></script>
+
+  <script src="https://cdn.socket.io/socket.io-1.3.6.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+
+  <script type="text/javascript">
+
+    var socket = io('http://localhost:3000');
+
+    socket.on('connect',function(){
+    console.log("connect socket");
+    });
+  </script>
 
   <script src="js/styling.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/usersController.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/dronesController.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/arduinoController.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/replbot.js" type="text/javascript" charset="utf-8"></script>
 
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
 
   <!-- Compiled and minified CSS -->

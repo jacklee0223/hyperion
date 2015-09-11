@@ -8,6 +8,8 @@
   ArduController.$inject = ['$scope', 'mySocket'];
 
       function ArduController ($scope, mySocket) {
+            var socket = io();
+
              $scope.ledOn = function () {
                  mySocket.emit('led:on');
                  console.log('LED ON/OFF');

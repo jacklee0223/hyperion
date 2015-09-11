@@ -4,7 +4,7 @@ var Drone = require('../models/Drone');
 
 // GET ALL
 var getAll = function(request, response) {
-  Drone.find(function(error, drones) {
+  Drone.find({}, function(error, drones) {
     if(error) response.json({message: 'Could not find any drone'});
 
     response.json({drones: drones});
