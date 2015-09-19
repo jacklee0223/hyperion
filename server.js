@@ -69,80 +69,88 @@ var led,
     rservo,
     lservo;
 
-board.on("ready", function() {
-  console.log('Arduino connected');
-  led = new five.Led(8);
-  rservo = new five.Servo(11);
-  lservo = new five.Servo(10);
-  // wheels = [rservo, lservo];
+try {
+  board.on("ready", function() {
+    console.log('Arduino connected');
+    led = new five.Led(8);
+    rservo = new five.Servo(11);
+    lservo = new five.Servo(10);
+    // wheels = [rservo, lservo];
 
-  // make servos static at initial
-  rservo.to(90);
-  lservo.to(90);
-
-
-  });
+    // make servos static at initial
+    rservo.to(90);
+    lservo.to(90);
 
 
-//Socket connection handler
-io.on('connection', function (socket) {
-  console.log(socket.id);
+    });
 
 
-  socket.on('led:on', function (data) {
-     led.toggle();
-     console.log('LED ON/OFF');
-  });
+  //Socket connection handler
+  io.on('connection', function (socket) {
+    console.log(socket.id);
 
-  socket.on('led:blink', function (data) {
-     led.blink(500);
-     console.log('LED BLINK');
-  });
 
-  socket.on('servo:go', function (data) {
-      var wheels = function() {
+    socket.on('led:on', function (data) {
+       led.toggle();
+       console.log('LED ON/OFF');
+    });
+
+    socket.on('led:blink', function (data) {
+       led.blink(500);
+       console.log('LED BLINK');
+    });
+
+    socket.on('servo:go', function (data) {
+        var wheels = function() {
+          rservo.min();
+          lservo.max();
+        }
+        wheels();
+        console.log('Forward');
+
+    });
+
+    socket.on('servo:back', function (data) {
+        var wheels = function() {
+          rservo.max();
+          lservo.min();
+        }
+        wheels();
+        console.log('Back');
+
+    });
+
+    socket.on('servo:stop', function (data) {
+        rservo.to(90);
+        lservo.to(90);
+        console.log('Stop');
+
+    });
+
+    socket.on('servo:left', function (data) {
         rservo.min();
+        lservo.to(90);
+        console.log('left turn');
+
+    });
+
+    socket.on('servo:right', function (data) {
+        rservo.to(90);
         lservo.max();
-      }
-      wheels();
-      console.log('Forward');
+        console.log('right turn');
+
+    });
 
   });
 
-  socket.on('servo:back', function (data) {
-      var wheels = function() {
-        rservo.max();
-        lservo.min();
-      }
-      wheels();
-      console.log('Back');
+  console.log('Waiting for connection');
 
-  });
+}
 
-  socket.on('servo:stop', function (data) {
-      rservo.to(90);
-      lservo.to(90);
-      console.log('Stop');
+catch(err) {
+  return;
+}
 
-  });
-
-  socket.on('servo:left', function (data) {
-      rservo.min();
-      lservo.to(90);
-      console.log('left turn');
-
-  });
-
-  socket.on('servo:right', function (data) {
-      rservo.to(90);
-      lservo.max();
-      console.log('right turn');
-
-  });
-
-});
-
-console.log('Waiting for connection');
 
 //////////////////////////////////////////////
 ////**************************************////
