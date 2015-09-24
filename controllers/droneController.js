@@ -21,7 +21,7 @@ function createDrone(request, response) {
   drone.save(function(error) {
     if(error) response.json({messsage: 'Could not create drone b/c:' + error});
 
-    response.json({drone: drone});
+    // response.json({drone: drone});
     response.redirect('/');
     console.log('drone created');
   });
