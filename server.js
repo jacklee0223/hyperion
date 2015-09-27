@@ -53,23 +53,15 @@ console.log('port ' + port);
 //////////////////////////////////////////////
 
 
-var board = new five.Board({
-  // port: "/dev/cu.usbmodem1411"
-  // port: "/dev/cu.usbmodem1421"
-  // port: "/dev/cu.ED-209-DevB"
-  // port: "/dev/cu.RN42-6703-SPP"
-});
-var led,
-    rservo,
-    lservo;
-
-// try {
-
-// }
-
-// catch(err) {
-//   return;
-// }
+// var board = new five.Board({
+//   // port: "/dev/cu.usbmodem1411"
+//   // port: "/dev/cu.usbmodem1421"
+//   // port: "/dev/cu.ED-209-DevB"
+//   // port: "/dev/cu.RN42-6703-SPP"
+// });
+// var led,
+//     rservo,
+//     lservo;
 
 // board.on("ready", function() {
 //   console.log('Arduino connected');
