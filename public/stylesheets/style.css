@@ -1,3 +1,6 @@
+@font-face {
+  font-family: 'hyperion';
+  src: url("fonts/hyperion.ttf"); }
 .nav-wrapper {
   /*  background-color: #430909;*/
   background-color: black; }
@@ -8,7 +11,8 @@ body {
     background-repeat: no-repeat;
   }
   @media (max-width: 1120px), (max-height: 630px) {
-      body { background-size: auto; }*/ }
+      body { background-size: auto; }*/
+  /*font-family: hyperion;*/ }
 
 /*.container {
   background-color: none;
@@ -22,6 +26,14 @@ nav {
   margin-bottom: 5%;
   background-color: white;
   height: 500px; }
+
+.aboutus {
+  height: 100%;
+  display: block;
+  content: "";
+  clear: both;
+  overflow: visible;
+  background-color: black; }
 
 .tactical-screen {
   margin-top: 5%;
@@ -77,6 +89,17 @@ nav {
   .list-field-top p {
     margin: 0; }
   .list-field-top a {
+    font-size: 50%;
+    margin-bottom: 10%; }
+
+.list-field-vid {
+  color: white;
+  background-color: black;
+  text-align: center;
+  font-size: 300%; }
+  .list-field-vid p {
+    margin: 0; }
+  .list-field-vid a {
     font-size: 50%; }
 
 .list-field-bottom {
@@ -130,7 +153,6 @@ footer {
   z-index: 1; }
   footer div {
     margin-top: 1%;
-    width: 50%;
     float: right; }
 
 /*# sourceMappingURL=style.css.map */

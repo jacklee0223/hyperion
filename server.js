@@ -12,6 +12,10 @@ var express = require('express'),
     server = http.createServer(app),
     io = require('socket.io')(server),
     socket = io,
+    passport=require('passport'),
+    flash = require('connect-flash'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
     port = process.env.PORT || 3000;
 
 // routes
@@ -53,90 +57,91 @@ console.log('port ' + port);
 //////////////////////////////////////////////
 
 
-// var board = new five.Board({
-//   // port: "/dev/cu.usbmodem1411"
-//   // port: "/dev/cu.usbmodem1421"
-//   // port: "/dev/cu.ED-209-DevB"
-//   // port: "/dev/cu.RN42-6703-SPP"
-// });
-// var led,
-//     rservo,
-//     lservo;
+var board = new five.Board({
+  // port: "/dev/cu.usbmodem1411"
+  // port: "/dev/cu.usbmodem1421"
+  // port: "/dev/cu.ED-209-DevB"
+  // port: "/dev/cu.RN42-6703-SPP"
+});
 
-// board.on("ready", function() {
-//   console.log('Arduino connected');
-//   led = new five.Led(8);
-//   rservo = new five.Servo(11);
-//   lservo = new five.Servo(10);
-//   // wheels = [rservo, lservo];
+var led,
+    rservo,
+    lservo;
 
-//   // make servos static at initial
-//   rservo.to(90);
-//   lservo.to(90);
+board.on("ready", function() {
+  console.log('Arduino connected');
+  led = new five.Led(8);
+  rservo = new five.Servo(11);
+  lservo = new five.Servo(10);
+  // wheels = [rservo, lservo];
 
-
-//   });
+  // make servos static at initial
+  rservo.to(90);
+  lservo.to(90);
 
 
-// //Socket connection handler
-// io.on('connection', function (socket) {
-//   console.log(socket.id);
+  });
 
 
-//   socket.on('led:on', function (data) {
-//      led.toggle();
-//      console.log('LED ON/OFF');
-//   });
+//Socket connection handler
+io.on('connection', function (socket) {
+  console.log(socket.id);
 
-//   socket.on('led:blink', function (data) {
-//      led.blink(500);
-//      console.log('LED BLINK');
-//   });
 
-//   socket.on('servo:go', function (data) {
-//       var wheels = function() {
-//         rservo.min();
-//         lservo.max();
-//       }
-//       wheels();
-//       console.log('Forward');
+  socket.on('led:on', function (data) {
+     led.toggle();
+     console.log('LED ON/OFF');
+  });
 
-//   });
+  socket.on('led:blink', function (data) {
+     led.blink(500);
+     console.log('LED BLINK');
+  });
 
-//   socket.on('servo:back', function (data) {
-//       var wheels = function() {
-//         rservo.max();
-//         lservo.min();
-//       }
-//       wheels();
-//       console.log('Back');
+  socket.on('servo:go', function (data) {
+      var wheels = function() {
+        rservo.min();
+        lservo.max();
+      }
+      wheels();
+      console.log('Forward');
 
-//   });
+  });
 
-//   socket.on('servo:stop', function (data) {
-//       rservo.to(90);
-//       lservo.to(90);
-//       console.log('Stop');
+  socket.on('servo:back', function (data) {
+      var wheels = function() {
+        rservo.max();
+        lservo.min();
+      }
+      wheels();
+      console.log('Back');
 
-//   });
+  });
 
-//   socket.on('servo:left', function (data) {
-//       rservo.min();
-//       lservo.to(90);
-//       console.log('left turn');
+  socket.on('servo:stop', function (data) {
+      rservo.to(90);
+      lservo.to(90);
+      console.log('Stop');
 
-//   });
+  });
 
-//   socket.on('servo:right', function (data) {
-//       rservo.to(90);
-//       lservo.max();
-//       console.log('right turn');
+  socket.on('servo:left', function (data) {
+      rservo.min();
+      lservo.to(90);
+      console.log('left turn');
 
-//   });
+  });
 
-// });
+  socket.on('servo:right', function (data) {
+      rservo.to(90);
+      lservo.max();
+      console.log('right turn');
 
-// console.log('Waiting for connection');
+  });
+
+});
+
+console.log('Waiting for connection');
 
 //////////////////////////////////////////////
 ////**************************************////

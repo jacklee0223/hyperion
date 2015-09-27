@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'hyperion';
+  src: url('fonts/hyperion.ttf');
+}
+
 .nav-wrapper {
 /*  background-color: #430909;*/
   background-color: black;
@@ -10,6 +15,7 @@ body {
 }
 @media (max-width: 1120px), (max-height: 630px) {
     body { background-size: auto; }*/
+  /*font-family: hyperion;*/
 }
 
 /*.container {
@@ -26,6 +32,15 @@ nav {
   margin-bottom: 5%;
   background-color: white;
   height: 500px;
+}
+
+.aboutus {
+  height: 100%;
+  display: block;
+  content: "";
+  clear: both;
+  overflow: visible;
+  background-color: black;
 }
 
 .tactical-screen {
@@ -87,6 +102,23 @@ nav {
   color: white;
   background-color: black;
   height: 80px;
+  text-align: center;
+  font-size: 300%;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    font-size: 50%;
+    margin-bottom: 10%;
+  }
+
+}
+
+.list-field-vid {
+  color: white;
+  background-color: black;
   text-align: center;
   font-size: 300%;
 
