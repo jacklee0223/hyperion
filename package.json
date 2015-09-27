@@ -4,7 +4,7 @@
   "description": "",
   "engines": {
     "node": "1.6.2"
-  }
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
