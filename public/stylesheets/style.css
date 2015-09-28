@@ -141,6 +141,9 @@ nav {
   background-color: black;
 
 }*/
+.btn-floating {
+  z-index: 0; }
+
 footer {
   background-color: black;
   height: 60px;
