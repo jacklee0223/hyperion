@@ -137,10 +137,9 @@ nav {
   height: 10px;
   background-color: white; }
 
-/*.tactical-container {
-  background-color: black;
+.section-fix {
+  padding: 0; }
 
-}*/
 .btn-floating {
   z-index: 0; }
 
